@@ -16,17 +16,31 @@ for eachfruit in fruits:
     print(eachfruit) 
 
 # continue Keydword -- Skips the current iteration and then finishes the loop
-fruits = ["apple", "banana", "blueberry", "strawberry"]
-for eachFruit in fruits:
-    print(eachfruit)
-    if eachFruit == "banana":
-        continue
-print(eachFruit)
+#fruits = ["apple", "banana", "blueberry", "strawberry"]
+#for eachFruit in fruits:
+#    print(eachfruit)
+#    if eachFruit == "banana":
+#        continue
+#print(eachFruit)
 # break Keydword -- Immediately exit the loop
-fruits = ["apple", "banana", "blueberry", "strawberry"]
-for eachFruit in fruits:
-    print(eachfruit)
-    if eachFruit == "banana":
-        break
-print(eachFruit)
+#fruits = ["apple", "banana", "blueberry", "strawberry"]
+#for eachFruit in fruits:
+#    print(eachfruit)
+#    if eachFruit == "banana":
+#        break
+#print(eachFruit)
+
+# for lops using range(). range(x) is exclusive, it starts at 0 and ends at x -1
+for i in range(10): # range is 0-9
+    print(i)
+
+
+
+
+
+
+
+
+
+
 
