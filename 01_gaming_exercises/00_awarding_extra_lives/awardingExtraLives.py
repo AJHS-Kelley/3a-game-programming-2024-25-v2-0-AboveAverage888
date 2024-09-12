@@ -2,9 +2,20 @@
 
 
 lives = 3
-score = input
+score =int(input("Enter your score then press ENTER\n"))
+name = "Ques"
+
+print(f"Hello {name}! You scored {3} points\n")
+
+
+
+# CHARACTER REFERENCE
+# CURLY BRACES {}
+# BRACKETS []
+# ANGLE BRACKETS <>
+# PARENTHESES ()
 # Allow the user to input the score AS AN INTERGER
-# If score is 1000 or less 
+# If score is 10000 or less 
     # Lose a life
 # If score is > 10000 but less than 10001
     # Give 1 extra life
@@ -13,11 +24,18 @@ score = input
 
 # Output the socre and the number of lives to the screen
 
-if score <= 1000:
-    print("You lose, one life")
+if score >= 100000:
+    print("You gain, 2x lives\n")
+elif score >= 10000:
+    print("You will gain a extra life\n")
+else:
+    print("You lose a life\n")
 
-if score > 10000:
-    print("You will gain a extra life")
+
+
+
+
+
 
 
 
