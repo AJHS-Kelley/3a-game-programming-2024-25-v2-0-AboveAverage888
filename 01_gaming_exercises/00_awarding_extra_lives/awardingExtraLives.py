@@ -22,10 +22,11 @@ print(f"Hello {name}! You scored {score} points\n")
 # If score is > 1000000
     # Give 2 extra lives 
 
-# Output the socre and the number of lives to the screen
+
 
 if score >= 100000:
     print("You gain, 2x lives\n")
+<<<<<<< HEAD
     # You will gain the lives
 elif score >= 10000:
     print("You will gain a extra life\n")
@@ -37,6 +38,19 @@ else:
 # Output the socre and the number of lives to the screen
 
 
+=======
+    # Add the lives. 
+elif score >= 10000:
+    print("You will gain a extra life\n")
+    # Add the life.  
+else:
+    print("You lose a life\n")
+    # Subtract. 
+
+
+# COMPLETE THIS LINE BELOW. 
+# Output the socre and the number of lives to the screen
+>>>>>>> e35c98868a5fd8923b2be29faab1b7fc32bed727
 
 
 
