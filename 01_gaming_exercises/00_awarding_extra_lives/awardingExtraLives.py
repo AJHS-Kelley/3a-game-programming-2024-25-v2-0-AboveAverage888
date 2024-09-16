@@ -5,7 +5,7 @@ lives = 3
 score =int(input("Enter your score then press ENTER\n"))
 name = "Ques"
 
-print(f"Hello {name}! You scored {3} points\n")
+print(f"Hello {name}! You scored {score} points\n")
 
 
 
@@ -26,12 +26,15 @@ print(f"Hello {name}! You scored {3} points\n")
 
 if score >= 100000:
     print("You gain, 2x lives\n")
+    # You will gain the lives
 elif score >= 10000:
     print("You will gain a extra life\n")
+    # You will gain a life
 else:
     print("You lose a life\n")
+    # You will lose the life
 
-
+# Output the socre and the number of lives to the screen
 
 
 
