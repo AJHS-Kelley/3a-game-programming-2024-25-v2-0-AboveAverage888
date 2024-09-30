@@ -1,67 +1,24 @@
 # Rock, Paper, Scrissors by Jackques Williams v0.1
 
 # Module Imports
-import random
+import random, time
 
 # DATA STRUCTURES -- player
 playerScore = 0
-playerName = "Test Player"
 playerChoice = None
+numDraws = 0
 
 # Data Operators -- CPU
 cpuScore = 0
 cpuChoice = None
 
-# PLAYER NAME INPUT
-playerName = input("Please type your name and press enter\n")
-print(f"Hello {playerName}!\n")
-isCorrect = input("is that correct? Type yes or no and press enter.\n")
-if isCorrect == "yes":
-    print(f"Ok {playerChoice}, let's play rock, paper, scissors!\n")
-else:
-    playerName = input("Please type you name and press enter.\n")
-
-# .lower() can turn all input into lowercase
-# .upper() can turn all input into lowercase
-
-
-# The rules 
-print("""
-Welcome to the Rock, Paper, Scissors robot!!      
-Lets play rock, paper, scissors      
-      
-You will play against the CPU. The first player to score 5 points wins.     
-You  will either select rock, Paper, or Scissors.      
-The CPU will select ROCK, PAPER, or SCISSORS at random    
-         
-1) Rock beats Scissors     
-2) Scissors beats Paper    
-3) Paper beats Rock      
-        """)
-
-# MULTI-LINE STRINGS CAN BE USED AS BIG COMMENTS
-""" You can put comments in these strings aswell"""
-
-
-
-
-
 # MAIN GAME LOOP
-while playerScore < 5 and cpuScore < 5:
-    print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points \n")
-    playerChoice = input ("Please enter rock, paper, or scissors  and press enter \n").lower()
-    if playerChoice != "rock" and playerChoice != "paper" and playerChoice != "scissors":
-        playerChoice = input ("Please enter rock, paper, or scissors  and press enter \n").lower()
-        if playerChoice != "rock" and playerChoice != "paper" and playerChoice != "scissors":
-            print("You are not following my rules. Please try again\n")
-            exit()
-        print(f"You have chosen{playerChoice}\n")
-    else:
-            print(f"You have chosen {playerChoice} \n")
-
-
-    # let player select rock, paper, or scissor
-    # let cpu select choice at random
+loopCount = 0
+loopsReq = int(input("How many  loops do you want?\n Enter an interger, no commas, and press ENTER"))
+# req is the universal abbreviation in computer programming for REQUEST. reqs = REQUEST
+rpsTimeStart = time.time() # returns the number of seconds since Jan .01 1970 @ 12:00AM
+while loopCount < loopsReq: 
+    # let CPU select choice at random
     cpuChoice = random.randint(0, 2) # randomly selct 0, 1 , or 2.       
     if cpuChoice == 0:
         cpuChoice = "rock"
@@ -72,7 +29,19 @@ while playerScore < 5 and cpuScore < 5:
     else :
         print("Unable to determine CPU choice. \n Please restart")
         exit()
-    print(f"CPU Choice: {cpuChoice}")
+    # print(f"CPU Choice: {cpuChoice}")
+
+    # let PLAYER select choice at random
+    playerChoice = random.randint(0, 2) # randomly selct 0, 1 , or 2.       
+    if playerChoice == 0:
+        playerChoice = "rock"
+    elif playerChoice == 1:
+         playerChoice = "paper"
+    elif playerChoice == 2 :
+         playerChoice = "scissors"
+    else :
+        print("Unable to determine CPU choice. \n Please restart")
+        exit()
 
         # compare player choice to cpu choice
     if playerChoice == "rock" and cpuChoice == "paper":
@@ -115,13 +84,26 @@ while playerScore < 5 and cpuScore < 5:
         cpuScore += 1
     else:
         print("Unable to determine a winner. Please restart. \n")
-    exit()
+        exit()
+    loopCount += 1
 
 
 
+print(f"Your final score: {playerScore}\n CPU Final Score: {cpuScore}\n Draws {numDraws}\n")
+if playerScore > cpuScore:
+    print(f"Congratulations. a winner is you\n")
+elif cpuScore > playerScore:
+    print(f"The CPU wins. You fail to exist from now on.\n")
+else:
+    print("Unable to determine a winner.\n Please restart\n")
+    exit()  
 
-print(f"Your final score: {playerScore}\n CPU Final Score: {cpuScore}\n")
-    # print the results to the screen
-    # award point to winner and output results
+rpsTimeStop = time.time()
+rpsTime = rpsTimeStop - rpsTimeStart
+print(f"Number of Loops: {loopCount}\n")
+print(f"Execution Time {rpsTime: .2F} seconds. \n") # :.2F formats to 2 decimal places
+
+
+
 
 
