@@ -45,45 +45,55 @@ while loopCount < loopsReq:
 
         # compare player choice to cpu choice
     if playerChoice == "rock" and cpuChoice == "paper":
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("CPU win a point. \n")
-        cpuScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("CPU win a point. \n")
+        #cpuScore += 1
+        cpuScore = cpuScore + 1
         # CPU WINS
     elif playerChoice == "rock" and cpuChoice == "scissors" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("Player win a point. \n")
-        playerScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("Player win a point. \n")
+        #playerScore += 1
+        playerScore = playerScore + 1
         # PLAYER WINS
     elif playerChoice == "rock" and cpuChoice == "rock" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("its a draw. \n")
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("its a draw. \n")
+        numDraws += 1
         # DRAW
     elif playerChoice == "scissors" and cpuChoice == "paper" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("Player win a point. \n")
-        playerScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("Player win a point. \n")
+        #playerScore += 1
+        playerScore = playerScore + 1
 
     elif playerChoice == "scissors" and cpuChoice == "rock" : 
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("CPU win a point. \n")
-        cpuScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("CPU win a point. \n")
+        #cpuScore += 1
+        cpuScore = cpuScore + 1
 
     elif playerChoice == "scissors" and cpuChoice == "scissors" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("its a draw. \n")
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("its a draw. \n")
+        numDraws += 1
     elif playerChoice == "paper" and cpuChoice == "paper" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("its a draw. \n")
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("its a draw. \n")
+        numDraws += 1
     elif playerChoice == "paper" and cpuChoice == "rock" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("Player win a point. \n")
-        playerScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("Player win a point. \n")
+        #playerScore += 1
+        playerScore = playerScore + 1
+
     elif playerChoice == "paper" and cpuChoice == "scissors" :
-        print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
-        print("CPU win a point. \n")
-        cpuScore += 1
+        #print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
+        #print("CPU win a point. \n")
+        #cpuScore += 1
+        cpuScore = cpuScore + 1
     else:
-        print("Unable to determine a winner. Please restart. \n")
+        #print("Unable to determine a winner. Please restart. \n")
         exit()
     loopCount += 1
 
