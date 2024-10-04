@@ -125,3 +125,4 @@ print(f"Your final score: {playerScore}\n CPU Final Score: {cpuScore}\n")
     # award point to winner and output results
 
 
+playerChoice = input ("Please enter rock, paper, or scissors  and press enter\n").lower()
