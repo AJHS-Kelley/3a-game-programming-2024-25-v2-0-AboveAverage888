@@ -1,4 +1,4 @@
-# Rock, Paper, Scrissors by Jackques Williams v0.1
+# Rock, Paper, Scrissors by Jackques Williams v3.0
 
 # Module Imports
 import random
@@ -13,16 +13,21 @@ cpuScore = 0
 cpuChoice = None
 
 # PLAYER NAME INPUT
-playerName = input("Please type your name and press enter\n")
+def  playerName(): # Function Signature -- name of function, (arguments if any)
+    playerName = input("Please type your name and press enter\n")
 print(f"Hello {playerName}!\n")
 isCorrect = input("is that correct? Type yes or no and press enter.\n")
 if isCorrect == "yes":
-    print(f"Ok {playerChoice}, let's play rock, paper, scissors!\n")
+    print(f"Ok {playerName}, let's play rock, paper, scissors!\n")
 else:
     playerName = input("Please type you name and press enter.\n")
 
 # .lower() can turn all input into lowercase
-# .upper() can turn all input into lowercase
+# .upper() can turn all input into lowercase  
+
+# CALLING THE FUNCTION
+playerName()
+
 
 
 # The rules 
