@@ -13,7 +13,9 @@ cpuScore = 0
 cpuChoice = None
 
 # PLAYER NAME INPUT
-def  playerName(): # Function Signature -- name of function, (arguments if any)
+def  playerName() -> str: # Function Signature -- name of function, (arguments if any)
+    """ Gets the name from the player and returns it."""
+    # The line above is a DOCSTRING, it gives a brief exapmle of what the function does.
     playerName = input("Please type your name and press enter\n")
     print(f"Hello {playerName}!\n")
     isCorrect = input("is that correct? Type yes or no and press enter.\n")
@@ -21,39 +23,32 @@ def  playerName(): # Function Signature -- name of function, (arguments if any)
         print(f"Ok {playerName}, let's play rock, paper, scissors!\n")
     else:
         playerName = input("Please type you name and press enter.\n")
-    return playerName
-# .lower() can turn all input into lowercase
-# .upper() can turn all input into lowercase  
+    return playerName  
 
 # CALLING THE FUNCTION
-playerName()
-
-
+playerName = playerName()
 
 # The rules 
-print("""
-Welcome to the Rock, Paper, Scissors robot!!      
-Lets play rock, paper, scissors      
-      
-You will play against the CPU. The first player to score 5 points wins.     
-You  will either select rock, Paper, or Scissors.      
-The CPU will select ROCK, PAPER, or SCISSORS at random    
-         
-1) Rock beats Scissors     
-2) Scissors beats Paper    
-3) Paper beats Rock      
-        """)
+def rules() -> None:
+    """ This function prints the rules for rock, paper, scissors."""
+    print(f"""
+    Welcome, {playerName}to the Rock, Paper, Scissors robot!!      
+    Lets play rock, paper, scissors!!      
+        
+    You will play against the CPU. The first player to score 5 points wins.     
+    You  will either select rock, Paper, or Scissors.      
+    The CPU will select ROCK, PAPER, or SCISSORS at random    
+            
+    1) Rock beats Scissors     
+    2) Scissors beats Paper    
+    3) Paper beats Rock      
+            """)
+    # Does another part of this program need to access this information? 
+    # IF YES, YOU MUST HAVE A return STATEMENT
+    # IF NO, A return STATEMENT IS NOT REQUIRED
 
-# MULTI-LINE STRINGS CAN BE USED AS BIG COMMENTS
-""" You can put comments in these strings aswell"""
-
-
-
-
-
-# MAIN GAME LOOP
-while playerScore < 5 and cpuScore < 5:
-    print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points \n")
+def playerChoice() -> str:
+    """Allows the player to choose rock, paper, scissors."""
     playerChoice = input ("Please enter rock, paper, or scissors  and press enter \n").lower()
     if playerChoice != "rock" and playerChoice != "paper" and playerChoice != "scissors":
         playerChoice = input ("Please enter rock, paper, or scissors  and press enter \n").lower()
@@ -63,10 +58,10 @@ while playerScore < 5 and cpuScore < 5:
         print(f"You have chosen{playerChoice}\n")
     else:
             print(f"You have chosen {playerChoice} \n")
+    return playerChoice
 
-
-    # let player select rock, paper, or scissor
-    # let cpu select choice at random
+def cpuChoice()-> str:
+    """Allows the CPU to choose paper, rock, scissors."""
     cpuChoice = random.randint(0, 2) # randomly selct 0, 1 , or 2.       
     if cpuChoice == 0:
         cpuChoice = "rock"
@@ -75,8 +70,20 @@ while playerScore < 5 and cpuScore < 5:
     elif cpuChoice == 2 :
          cpuChoice = "scissors"
     else :
-        print("Unable to determine CPU choice. \n Please restart")
+        print("Unable to determine CPU choice. \n Please restart.\n")
         exit()
+    return cpuChoice 
+
+
+# MAIN GAME LOOP
+while playerScore < 5 and cpuScore < 5:
+    print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points \n")
+    
+
+
+    # let player select rock, paper, or scissor
+    # let cpu select choice at random
+   
     print(f"CPU Choice: {cpuChoice}")
 
         # compare player choice to cpu choice
