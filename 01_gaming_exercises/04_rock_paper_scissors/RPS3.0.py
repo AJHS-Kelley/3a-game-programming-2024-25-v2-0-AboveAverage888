@@ -15,13 +15,13 @@ cpuChoice = None
 # PLAYER NAME INPUT
 def  playerName(): # Function Signature -- name of function, (arguments if any)
     playerName = input("Please type your name and press enter\n")
-print(f"Hello {playerName}!\n")
-isCorrect = input("is that correct? Type yes or no and press enter.\n")
-if isCorrect == "yes":
-    print(f"Ok {playerName}, let's play rock, paper, scissors!\n")
-else:
-    playerName = input("Please type you name and press enter.\n")
-
+    print(f"Hello {playerName}!\n")
+    isCorrect = input("is that correct? Type yes or no and press enter.\n")
+    if isCorrect == "yes":
+        print(f"Ok {playerName}, let's play rock, paper, scissors!\n")
+    else:
+        playerName = input("Please type you name and press enter.\n")
+    return playerName
 # .lower() can turn all input into lowercase
 # .upper() can turn all input into lowercase  
 
