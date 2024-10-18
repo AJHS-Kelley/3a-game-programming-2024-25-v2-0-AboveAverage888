@@ -126,6 +126,17 @@ def pickwinner(playerChoice: str, cpuChoice: str) -> str: #playerChoice and cpuC
     exit()
     # return statements IMMEDIATELY exit a function.
 
+def score(winner: str) -> int:
+    """ This function uses the winner to update the score for CPU, NUM, DRAWS, and player score."""
+    if winner == "Player wins":
+        score = 1
+    elif winner == "CPU wins":
+        score= 1
+    else: # This is a DRAW.
+        score = 0
+    return score
+
+
 
 # MAIN GAME LOOP
 while playerScore < 5 and cpuScore < 5:
