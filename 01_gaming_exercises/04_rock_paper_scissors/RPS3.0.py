@@ -18,7 +18,7 @@ def  playerName() -> str: # Function Signature -- name of function, (arguments i
     # The line above is a DOCSTRING, it gives a brief exapmle of what the function does.
     playerName = input("Please type your name and press enter\n")
     print(f"Hello {playerName}!\n")
-    isCorrect = input("is that correct? Type yes or no and press enter.\n")
+    isCorrect = input("is that correct? Type yes or no and press enter.\n") .lower()
     if isCorrect == "yes":
         print(f"Ok {playerName}, let's play rock, paper, scissors!\n")
     else:
@@ -43,6 +43,7 @@ def rules() -> None:
     2) Scissors beats Paper    
     3) Paper beats Rock      
             """)
+    
     # Does another part of this program need to access this information? 
     # IF YES, YOU MUST HAVE A return STATEMENT
     # IF NO, A return STATEMENT IS NOT REQUIRED
@@ -74,18 +75,16 @@ def cpuChoice()-> str:
         exit()
     return cpuChoice 
 
-def pickwinner(playerChoice: str, cpuChoice: str) -> str: #playerChoice and cpuChoice are both ARGUMENTS, they wil be string values.
+def pickWinner(playerChoice: str, cpuChoice: str) -> str: #playerChoice and cpuChoice are both ARGUMENTS, they wil be string values.
     """ This function uses the player choice and CPU choice to determine a winner"""
     if playerChoice == "rock" and cpuChoice == "paper":
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("CPU win a point. \n")
-        cpuScore += 1
         return "CPU Wins"
         # CPU WINS
     elif playerChoice == "rock" and cpuChoice == "scissors" :
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("Player win a point. \n")
-        playerScore += 1
         return  "Player Wins"
         # PLAYER WINS
     elif playerChoice == "rock" and cpuChoice == "rock" :
@@ -96,12 +95,10 @@ def pickwinner(playerChoice: str, cpuChoice: str) -> str: #playerChoice and cpuC
     elif playerChoice == "scissors" and cpuChoice == "paper" :
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("Player win a point. \n")
-        playerScore += 1
         return "Player Wins"
     elif playerChoice == "scissors" and cpuChoice == "rock" : 
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("CPU win a point. \n")
-        cpuScore += 1
         return "CPU Wins"
     elif playerChoice == "scissors" and cpuChoice == "scissors" :
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
@@ -114,50 +111,54 @@ def pickwinner(playerChoice: str, cpuChoice: str) -> str: #playerChoice and cpuC
     elif playerChoice == "paper" and cpuChoice == "rock" :
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("Player win a point. \n")
-        playerScore += 1
         return "Player Wins"
     elif playerChoice == "paper" and cpuChoice == "scissors" :
         print(f" The cpu chose {cpuChoice} and you chose {playerChoice}. \n")
         print("CPU win a point. \n")
-        cpuScore += 1
         return "CPU Wins"
     else:
         print("Unable to determine a winner. Please restart. \n")
-    exit()
+        exit()
     # return statements IMMEDIATELY exit a function.
 
 def score(winner: str) -> int:
     """ This function uses the winner to update the score for CPU, NUM, DRAWS, and player score."""
-    if winner == "Player wins":
+    if winner == "Player Wins":
         score = 1
-    elif winner == "CPU wins":
-        score= 1
+    elif winner == "CPU Wins":
+        score = 1
     else: # This is a DRAW.
         score = 0
     return score
 
+# DELETE ALL OF THE OLD CODE UNER THE SCORE FUNCTION.
+# ADD THIS NEW CODE BELOW.
+def matchWinner(playerScore: int, cpuScore: int) -> bool:
+    """ This function dtermines if a player has won the game or not by scoring 5 points."""
+    if playerScore >= 5:
+        print("Congratulations! You are the winner.\n")
+        return True
+    elif cpuScore >= 5:
+        print("Sadly, you have been defeated by the CPU.\n")
+        return True
+    else: # No winner yet
+        return False
 
+def playGame(playerScore: int,cpuScore: int) -> None:
+    """ This function will use all the other functions to play Rock, Paper, Scissors."""
+    while True:
+        cpuPick = cpuChoice()
+        playerPick = playerChoice()
+        roundWinner = pickWinner(playerPick, cpuPick)
+        if roundWinner == "Player Wins":
+            playerScore += score(roundWinner)
+        if roundWinner == "CPU Wins":
+            cpuScore += score(roundWinner)
 
-# MAIN GAME LOOP
-while playerScore < 5 and cpuScore < 5:
-    print(f"{playerName} you have {playerScore} points.\n The CPU has {cpuScore} points \n")
-    
+        print(f"Player Score: {playerScore}\n")
+        print(f"CPU Score: {cpuScore}\n")
 
+        if matchWinner(playerScore, cpuScore) == True:
+            break
 
-    # let player select rock, paper, or scissor
-    # let cpu select choice at random
-   
-    print(f"CPU Choice: {cpuChoice}")
-
-        # compare player choice to cpu choice
-   
-
-
-
-
-print(f"Your final score: {playerScore}\n CPU Final Score: {cpuScore}\n")
-    # print the results to the screen
-    # award point to winner and output results
-
-
-playerChoice = input ("Please enter rock, paper, or scissors  and press enter\n").lower()
+playGame(playerScore, cpuScore)
