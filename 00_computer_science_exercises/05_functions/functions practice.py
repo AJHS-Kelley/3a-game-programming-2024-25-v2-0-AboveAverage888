@@ -30,9 +30,9 @@ def helloWorldMulti(): # FUNCTION SIGNATURE
 # Function to determinje even / odd numbers
 argument1 = random.randint (-1000, 1000)
 
-def isEven(argument1: int) -> bool: # Requires one ARGUMENT (argument1) and RETURNS a Boolean value
+def isEven(myNum: int) -> bool: # Requires one ARGUMENT (argument1) and RETURNS a Boolean value
     """ Determines if an interger value is even or odd"""
-    if argument1 % 2 == 0:
+    if myNum % 2 == 0:
         return True
     else: 
         return False
