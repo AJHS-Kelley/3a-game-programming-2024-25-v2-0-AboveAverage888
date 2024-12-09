@@ -1,5 +1,6 @@
 # Dragon Realm, <STUDENT_NAME>, v0.0
 # Based on https://inventwithpython.com/chapter6.html by Al Sweigart
+# No new code has been submitted for this project. -- 12/09/24
 
 import random
 import time
